@@ -19,6 +19,7 @@
     echo CONS1[4] . "<br>";
 
     // Unlike variables constants are globals, you can access them inside and outside of the functions
+    
     ?>
 </body>
 </html>
