@@ -7,7 +7,7 @@
     <title>XSS</title>
 </head>
 <body>
-    <!-- Notice that htmlspecialchars are used -->
+    <!-- Notice that htmlspecialchars is used -->
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         Name: <input type="text" name="name"><br>
         E-mail: <input type="text" name="email"><br>
