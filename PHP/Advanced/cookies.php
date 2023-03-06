@@ -21,7 +21,7 @@
 <body>
     <p>
         <?php 
-            
+            // if there is a cookie and the request is made through HTTPS
             if (isset($_COOKIE["nameOfCookie"]) && !empty($_SERVER["HTTPS"])) {
                 echo "Here is the value of the cookie: " . $_COOKIE["nameOfCookie"] . "<br><br>";
             } else {
