@@ -1,0 +1,4 @@
+Content of the file
+Content of the file
+Appended to the file!
+Appended to the file!
