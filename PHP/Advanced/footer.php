@@ -1,0 +1,1 @@
+<p>&copy; 2008-<?php echo date("Y"); ?></p>
