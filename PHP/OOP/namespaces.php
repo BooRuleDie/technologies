@@ -29,3 +29,9 @@ class Fruit {
     // we get no error as you can see
 }
 ?>
+
+<?php 
+// You can give aliases to namespaces if you'd like to
+use aNewNamespace as anns;
+
+?>
