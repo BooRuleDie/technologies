@@ -1,12 +1,11 @@
 <?php 
     $hostname = "localhost";
-    $username = "root"; // be sure that user has enough permission to create a database
+    $username = "root";
     $password = "mysql";
     $dbname = "createdDB";
 
     try {
-        // create connection
-        // using PDO instead of mysqli this time
+        // create connection, notice that dbname added to the first argument
         $conn = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
 
         // set the PDO error mode to exception
@@ -20,7 +19,6 @@
             email VARCHAR(30),
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         )";
-
         $conn -> exec($sql);
 
         echo "Guests Table has been created!<br>";
