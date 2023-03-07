@@ -12,7 +12,7 @@
         $conn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
         // create guests table 
-        $sql = "CREATE TABLE Guests (
+        $sql = "CREATE TABLE IF NOT EXISTS Guests (
             id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
             firstname VARCHAR(30) NOT NULL,
             lastname VARCHAR(30) NOT NULL,
