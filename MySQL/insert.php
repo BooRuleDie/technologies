@@ -11,7 +11,7 @@
         // set the PDO error mode to exception
         $conn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
-        // create guests table 
+        // insert into Guests table
         $sql = "INSERT INTO Guests(firstname, lastname, email) VALUES('Eren', 'BooRuleDie', 'hulolo@gmail.com')";
         $conn -> query($sql);
         
