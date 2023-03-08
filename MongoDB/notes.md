@@ -1,4 +1,4 @@
-# Anti patterns: 
+# Anti patterns
 
 * **Massive Arrays**
 	- 16 mb document size limit -> unbound arrays might be problem
