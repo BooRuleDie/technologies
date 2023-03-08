@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX with PHP</title>
+    <script>
+        const fetchSuggestions = (textInSearchBar) => {
+            if (textInSearchBar === "") {
+                document.getElementById("display-suggests").innerHTML = "";
+                return;
+            } else {
+                const ajax = new XMLHttpRequest();
+                ajax.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("display-suggests").innerHTML = this.responseText;
+                    }
+                }
+                ajax.open("GET", `suggestionserver.php?query=${textInSearchBar}`, true);
+                ajax.send();
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" onkeyup="fetchSuggestions(this.value)"><br>
+    <p id="display-suggests"></p>
+</body>
+</html>
