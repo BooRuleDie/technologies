@@ -13,3 +13,7 @@
 	- MongoDB Atlas has an interface that shows how frequently an index is being used. It might be useful to detect unnecessary indexes.
 
 * If you can't figure out how to increase performance for a specific case, you can use the mongodb forums to ask.
+
+# Security
+
+I guess MongoDB doesn't support prepared statements, so be sure that you have robust input validation when dealing with the user input.
