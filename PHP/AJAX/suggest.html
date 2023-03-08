@@ -7,9 +7,12 @@
     <title>AJAX with PHP</title>
     <script>
         const fetchSuggestions = (textInSearchBar) => {
+            // if user types something but the text in the search bar is empty, purge the content and do nothing
             if (textInSearchBar === "") {
                 document.getElementById("display-suggests").innerHTML = "";
                 return;
+            
+            // if user typed sometinng and the text is not empty, make a GET request to suggestionsserver.php using query parameter. Fetch the result and write it to the element with the id of display-suggests
             } else {
                 const ajax = new XMLHttpRequest();
                 ajax.onreadystatechange = function() {
