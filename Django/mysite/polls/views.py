@@ -3,6 +3,7 @@ from .models import Question, Choice
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404
 from django.urls import reverse
+from django.db.models import F
 
 # fetch the most recent 5 question
 def index(request):
@@ -27,6 +28,12 @@ def vote(request, question_id):
         selectedChoice = question.choice_set.get(pk = request.POST["choice"])
     except(KeyError, Choice.DoesNotExist):
         # enforce user to use the form again
-        return render(request, "polls/detail.html", {"question" : "You didn't select a choice."})
+        return render(request, "polls/detail.html", {"question" : question, "error_message" : "You didn't select a choice"})
+    # else
+    selectedChoice.votes = F("votes") + 1
+    selectedChoice.save()
+
+    # always return a HTTP redirect after a successful form operation, it prevents user from submitting the same data
+    return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
     
     
