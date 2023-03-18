@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <style>
+        .colors {
+            color: red;
+            background-color: blue;
+            border: 2px solid green;
+
+            /* Same values could have been specified using:display: 
+               
+               * rgba(r,g,b,a) or rgb(r,g,b) -> tha last value can be between 1 and 0
+               * hsla(h,s,l,a) or hsl(h,s,l)
+               * hex -> #RRGGBB
+            */
+        }
+
+        /* Gray colors can be obtained using the same value for red, green and blue fields. */
+        #gray-color1 {
+            color: #ababab;
+        }
+        #gray-color2 {
+            color: #f1f1f1;
+        }
+        #gray-color2 {
+            color: #3f3f3f;
+        }
+
+        /* If both values in each fields are the same instead of using 6 digit notation you can use the three digit notation like so */
+        #custom-color {
+            color: #aabb33;
+        }
+        #custom-color-copy {
+            color: #ab3;
+        }
+    </style>
+</head>
+<body>
+    <p class="colors">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus neque a ducimus dignissimos numquam adipisci, consequatur nesciunt nobis id voluptates quis dolorum maiores officia quia aspernatur minima beatae fugiat, architecto dolorem necessitatibus nisi quaerat! Consequatur excepturi, quos qui necessitatibus numquam rerum sit. Modi soluta magnam dolorum dicta voluptatem? Quibusdam pariatur quis cumque qui atque, nostrum nihil modi dignissimos eaque accusantium similique optio necessitatibus veritatis vel tempore, quasi, asperiores dolor at laboriosam voluptates voluptatem? A ratione sunt iste porro quod ab laudantium quisquam voluptatem eveniet delectus asperiores voluptate ea deserunt excepturi ad nemo accusantium magnam, deleniti cupiditate numquam! Illum, repellendus mollitia?
+    </p>
+
+    <p id="gray-color1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, unde!</p>
+    <p id="gray-color2">Pariatur corporis nihil ratione esse minima eaque voluptatem itaque blanditiis.</p>
+    <p id="gray-color3">Quibusdam natus deleniti cumque aliquam enim necessitatibus optio! Vitae, dicta.</p>
+
+    <p id="custom-color-copy">My color and the color of the text below are the same.</p>
+    <p id="custom-color">My color and the color of the text below are the same.</p>
+</body>
+</html>
