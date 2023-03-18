@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <style>
+        /* 
+            Outline is the line drawn outside the border of elements.
+            Almost all properties of the outline is quite similar to border.
+        */
+        p.dotted {
+            outline-style: dotted;
+            outline-width: 5px; 
+            }
+        p.dashed {
+            outline-style: dashed;
+            outline-width: 5px; 
+            }
+        p.solid {
+            outline-color: red green blue purple;
+            outline-style: solid;
+            outline-width: 1px 2px 3px 4px; 
+            }
+        p.double {
+            outline-style: double;
+            outline-width: 5px 10px;
+            }
+        p.groove {
+            outline-style: groove;
+            outline-width: 5px; 
+            }
+        p.ridge {
+            outline-style: ridge;
+            outline-width: 5px; 
+            }
+        p.inset {
+            outline-style: inset;
+            outline-width: 5px; 
+            }
+        p.outset {
+            outline-style: outset;
+            outline-width: 5px; 
+            }
+        p.none {
+            outline-style: none;
+            outline-width: 5px; 
+            }
+        p.hidden {
+            outline-style: hidden;
+            outline-width: 5px; 
+            }
+
+        /* Shorthand */ 
+        p.shorthand {
+            outline: 5px solid rgb(50,50,50);
+            margin-bottom: 30px;
+        }
+
+        /* You can set an offset if you'd like to */
+        p.offset {
+            outline: 5px solid black;
+            outline-offset: 10px;
+            border: 5px solid black;
+        }
+    </style>
+</head>
+<body>
+    <p class="dotted">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, voluptas.</p>
+    <p class="dashed">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, voluptas.</p>
+    <p class="solid">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, voluptas.</p>
+    <p class="double">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, voluptas.</p>
+    <p class="groove">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, voluptas.</p>
+    <p class="ridge">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, voluptas.</p>
+    <p class="inset">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, voluptas.</p>
+    <p class="outset">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, voluptas.</p>
+    <p class="none">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, voluptas.</p>
+    <p class="hidden">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, voluptas.</p>
+    <p class="shorthand">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, voluptas.</p>
+    <p class="offset">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias, voluptas.</p>
+</body>
+</html>
