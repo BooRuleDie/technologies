@@ -1,0 +1,20 @@
+{% extends 'master.html' %}
+
+{% block title %}Details{% endblock title %} 
+
+{% block content %}
+  <h1 class="text-center">{{ member.firstname }} {{ member.lastname }}</h1>
+
+  <br>
+
+  <ul class="text-center w-25 m-auto">
+    <li><b>Phone:</b> {{ member.phone }}</li>
+    <li><b>Registration Date:</b> {{ member.date }}</li>
+  </ul>
+
+  <br>
+
+  <div class="d-flex justify-content-center">
+    <a href="/app/members">Return back</a>
+  </div>
+{% endblock content %}

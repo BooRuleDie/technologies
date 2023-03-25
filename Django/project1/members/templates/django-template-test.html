@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+</head>
+<body>
+    {% comment %} if-else in Django Templates {% endcomment %}
+    {% if 1 == 2 %}
+        <p>1 really equals to 1, congrats!</p>
+    {% else %}
+    <p>They are not equal</p>
+    {% endif %}
+
+    {% comment %} is operator can be used to check whether the two objects are same {% endcomment %}
+    {% if x is y %}
+        <p>Yeah, they are same</p>
+    {% else %}
+        <p>Nope, they are different.</p>
+    {% endif %}
+
+    {% comment %} In loops you can use the empty keyword to check whether the object is empty{% endcomment %}
+    {% for word in x %}
+        <p> {{ word }}</p>
+    {% empty %}
+        <p> n/a </p>
+    {% endfor %}
+
+    {% comment %}
+    In addition to that the following variables are accessible in loops to help us perform specific tasks:
+        * forloop.counter -> index + 1 
+        * forloop.counter0 -> return indexes
+        * forloop.first -> it can be used to check if it's the first iteration {% if forloop.first %}
+        * forloop.last
+        * forloop.parentloop
+        * forloop.revcounter
+        * forloop.revcounter0
+    {% endcomment %} 
+
+    {# One-line Django Template Comment #}
+
+    {% comment %} include is used to copy-paste content of a template directly {% endcomment %}
+    {% comment %} And you can still override the variables using with keyword {% endcomment %}
+    {% include "some-random.html" with name="Mahmut" surname="Ivanov"%}
+</body>
+</html>

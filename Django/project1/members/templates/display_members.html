@@ -1,0 +1,27 @@
+{% extends 'master.html' %}
+
+{% block title %}Members{% endblock title %}
+
+{% block content %}
+  <h1 class="text-center">Members</h1>
+  <br>
+  <div style="width: 50%; margin:auto;">
+      <table class="table table-striped">
+          <tr>
+              <th>#</th>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Details</th>
+          </tr>
+          {% for member in members %}
+              <tr>
+                  <td>{{ member.id }}</td>
+                  <td>{{ member.firstname }}</td>
+                  <td>{{ member.lastname }}</td>
+                  <td><a href="details/{{ member.id }}">Click Here</a></td>                  
+              </tr>
+          {% endfor %}
+      </table>
+  </div>
+{% endblock content %}
+
