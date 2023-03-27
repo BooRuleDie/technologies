@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Importing these three js files to work with React is totally fine for testing and learning purposes however when it comes to the production you need to set up a React Environment -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <div id="myList"></div>
+
+    <script type="text/babel">
+        ReactDOM.render(<h>Hello World!</h>, document.getElementById("root"))
+        
+        const unorderedList = (
+            <ul>
+                <li>one</li>
+                <li>two</li>
+                <li>three</li>
+            </ul>
+        )
+        ReactDOM.render(unorderedList, document.getElementById("myList"))
+    </script>
+
+  </body>
+</html>
