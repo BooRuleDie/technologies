@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>import</title>
+</head>
+<body>
+    <p id="demo">
+
+    </p>
+    <script type="module">        
+        // import names exports from export.js
+        import { myArray, myArray2, myArray3, myArray4 } from "./export.js";
+        const comArray = [...myArray, "<br>", ...myArray2, "<br>", ...myArray3, "<br>", ...myArray4]
+
+        document.getElementById("demo").innerHTML = comArray
+        /*
+        1,2,3,4,5,6,7,8,9,10,
+        ,11,12,13,14,15,16,17,18,19,20,
+        ,1,2,3,4,5,6,7,8,9,10,
+        ,11,12,13,14,15,16,17,18,19,20
+        */
+                 
+    </script>
+</body>
+</html>

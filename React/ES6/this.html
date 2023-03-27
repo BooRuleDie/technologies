@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This</title>
+</head>
+<body>
+    <!-- 
+        There is a big difference between this, which is used in arrow functions, and regular functions  
+
+        Arrow functions return the object that they belong to, 
+        whereas regular functions return the object that they are called on, like button, window, etc.
+    -->
+
+    <h1>Arrow Function</h1>
+    <p>The <strong>this</strong> keyword represents the Header object.</p>
+    
+    <button id="btn">Click Me!</button>
+    
+    <p><strong>this</strong> represents:</p>
+    
+    <p id="demo"></p>
+    
+    <script>
+    class Header {
+      constructor() {
+        this.color = "Red";
+      }
+    
+      changeColorArrow = () => {
+        document.getElementById("demo").innerHTML += this; // returns the Header which is a Javascript object
+      }
+
+      changeColorRegular = function() {
+        document.getElementById("demo").innerHTML += this; // returns the HTML element object which called the method
+  }
+    }
+    
+    const myheader = new Header();
+    
+    //The window object calls the arrow function:
+    window.addEventListener("load", myheader.changeColorArrow); // -> [object Object]
+    
+    //A button object calls the arrow function:
+    document.getElementById("btn").addEventListener("click", myheader.changeColorArrow); // -> [object Object]
+    
+    //The window object calls the regular function:
+    window.addEventListener("load", myheader.changeColorRegular); // -> [object Window]
+    
+    //A button object calls the regular function:
+    document.getElementById("btn").addEventListener("click", myheader.changeColorRegular); // -> [object HTMLButtonElement]
+    
+    </script>
+
+</body>
+</html>
