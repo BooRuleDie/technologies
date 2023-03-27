@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>JSX</title>
+</head>
+<body>
+    <div id="root">
+    
+    </div>
+    <script type="text/babel">
+        // JSX stands for Javascript XML and it allows us to write HTML in React.
+        const content = <h1> JSX &lt;3 </h1>
+
+        const root = ReactDOM.createRoot(document.getElementById("root"))
+        root.render(content)
+
+        // Expressions in JSX: you can specify your expression inside the curly brackets
+        const content2 = <h1> JSX Expressions &lt;3 { 99 + 1 } </h1>
+        root.render(content2)
+
+        // Insert a large block of HTML: in order to do that you need to give the value of content in parantesis
+        const content3 = (
+            <ul>
+                <li>one</li>
+                <li>two</li>
+                <li>three</li>
+                <li>four</li>
+                <li>five</li>
+            </ul>
+        )
+        root.render(content3)
+
+        // Wrap multiple lines: you can either use div or fragments (empty tags in JSX)
+        const content4 = (
+            <div>
+                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Exercitationem aspernatur necessitatibus inventore quae!</p>
+            </div>
+        )
+
+        const content5 = (
+            <>
+                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Sunt quam eum quo quidem?</p>
+            </>
+        )
+
+        // root.render(content4)
+        root.render(content5)
+
+        // JSX follows XML's rules, therefore you should close the tag properly -> `/>`
+        const content6 = <img src="https://picsum.photos/200/200" alt="An error happened." />
+        root.render(content6)
+
+        // Since class is a reserved keyword in Javascript you can use that word to specify class name of an element instead you can use className
+        const content7 = <p className="hulolo">Lorem ipsum dolor sit amet.</p>
+        root.render(content7)
+        // rendered HTML -> <p class="hulolo">Lorem ipsum dolor sit amet.</p>
+
+        // if-else: you can't directly use if-else inside JSX expressions, instead you can use ternary operator or define the if-else statement outside of the JSX definition.
+
+        // way 1
+        const varName = 0
+        if (varName === 1) {
+            root.render(<h1> Variable Name: {varName}</h1>)
+        }
+
+        // way 2   
+        root.render(<h1> Variable Name: { varName ? varName : "It's 0"}</h1>)
+    </script>
+</body>
+</html>
