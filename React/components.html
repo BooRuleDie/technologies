@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Components</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        /* Components are functions that return HTML elements. There are two type of components:
+            * Class Component
+            * Function Component
+        
+            In the older versions of React, Class components are used most of the time however nowadays developers tend to use Function Components. Name of React Components must start with uppercase letters.
+        */
+
+        // Class Component
+        class Car1 extends React.Component {
+            render() {
+                <h1> This is text is from a React Class Component!</h1>
+            }
+        }
+
+        // Function Component
+        function Car2() {
+            return <h1> This is text is from a React Function Component!</h1>
+        }
+        ReactDOM.render(<Car2 />, document.getElementById("root"))
+
+        // You can send some arguments using props (stands for properties)
+        function Car3(props) {
+            return <h1> My car is {props.color}.</h1>
+        }
+        ReactDOM.render(<Car3 color="black" />, document.getElementById("root"))
+
+        // Nested Components
+        function Car4() {
+            return <>
+                <h1>What's the color of your car ?</h1>
+                <Car3 color="black" />
+            </>
+        }
+        ReactDOM.render(<Car4/>, document.getElementById("root"))
+
+        // Note that React is all about re-using codes so when working with React, it's always important to create these componenets in seperate files and import them when necessary.
+        // These filenames must start with uppercase letters like Car.js
+    </script>
+</body>
+</html>
