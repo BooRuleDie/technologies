@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Class</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        // As it's explained in components, most of the time you will use Function Components instead of Class Components, but there is no harm in learning the Class Componenst either.
+
+        // In Class Components all properties must be kept in a object called state. Since we are using classes we can call the parent class's constuctor and only define the state object
+        // Note that all name of all Components must start with a uppercase letter.
+        class Car extends React.Component {
+            constructor(){
+                super()
+                this.state = {
+                    color : "black"
+                }
+            }
+            render() {
+                // using the color property
+                return <h1>Hey guys, I'm a Car and I'm {this.state.color}.</h1>
+            }
+        }
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<Car/>)
+
+        // Or you can directly use the props like that:
+        class Car2 extends React.Component {
+            render() {
+                return <h1>Hey guys, I'm a Car and I'm {this.props.color}.</h1>
+            }
+        }
+        root.render(<Car2/>)
+
+        // If the Class Component has a constructor an you're using props, the props should always need to passed through the constructor and the parent class's constructor like that:
+        class Car3 extends React.Component {
+            constructor(props) {
+                super(props)
+            }
+            
+            render() {
+                return <h1>Hey guys, I'm a Car and I'm {this.props.color}.</h1> 
+            }
+        }
+        root.render(<Car color="black"/>)
+
+        // Class Component State
+        // state is the built-in property of React Class Components. It's used to store the properties that belongs to the particular Component. The whole Component is re-rendered when the state is changed.
+        class Car4 extends React.Component {
+            constructor(props) {
+                super(props)
+                // used to store properties
+                this.state = {
+                    year: 2023,
+                    model: "XM",
+                    brand: "BMW",
+                    color: "black"
+                }
+            }
+
+            render() {
+                return <>
+                    <ul>
+                        <li><b>Brand:</b> {this.state.brand}</li>
+                        <li><b>Model:</b> {this.state.model}</li>
+                        <li><b>Color:</b> {this.state.color}</li>
+                        <li><b>Year:</b> {this.state.year}</li>
+                    </ul>
+                </>
+            }
+        }
+        root.render(<Car4/>)
+
+        // You can use the setState() method of React Class Component to change the state and re-render the React element
+        class Car5 extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    year: 2023,
+                    model: "XM",
+                    brand: "BMW",
+                    color: "black"
+                }
+            }
+
+            changeColor = () => {
+                this.setState({color: "aqua"})
+            }
+
+            render() {
+                return <>
+                    <ul>
+                        <li><b>Brand:</b> {this.state.brand}</li>
+                        <li><b>Model:</b> {this.state.model}</li>
+                        <li><b>Color:</b> {this.state.color}</li>
+                        <li><b>Year:</b> {this.state.year}</li>
+                    </ul>
+
+                    <button 
+                    type="button" 
+                    onClick={this.changeColor}>
+                    Change color to aqua
+                    </button>
+                </>
+            }
+        }
+        root.render(<Car5/>)
+        // Always use the setState() method when you need to update the state
+
+        /* 
+        Each React Component has a lifecycle that can be explained in three phases:
+            * Mounting
+            * Updating
+            * Unmounting
+            
+        Mounting means putting elements into the DOM. There are four methods that get called when mounting an element (in order):
+
+            * construtor() -> optional
+            * getDerivedStateFromProps() -> optional
+            * render() -> required
+            * componentDidMount() -> optional
+        */
+
+        class Car6 extends React.Component {
+            // initiates the components
+            constructor(props) {
+                super(props)
+                this.state = {
+                    year: 2023,
+                    model: "XM",
+                    brand: "BMW",
+                    color: "black"
+                }
+            }
+
+            // is called in order to update state based on props
+            static getDerivedStateFromProps(props, state) {
+                return {color: props.color}
+            }
+            
+            // is called after the component is rendered
+            componentDidMount() {
+                setTimeout(() => {
+                    this.setState({year: 1999})
+                }, 1000)
+            }
+
+            // is called to render the HTML element
+            render() {
+                return <>
+                    <ul>
+                        <li><b>Brand:</b> {this.state.brand}</li>
+                        <li><b>Model:</b> {this.state.model}</li>
+                        <li><b>Color:</b> {this.state.color}</li>
+                        <li><b>Year:</b> {this.state.year}</li>
+                    </ul>
+                </>
+            }
+
+        }
+        root.render(<Car6 color="newColor"/>)
+
+        /*
+          Updating: A component is updated whenever there is a change in status or props 
+
+          React calls these 5 different methods when component is updated (in order):
+            
+            * getDerivedStateFromProps() -> optional
+            * shouldComponentUpdate() -> optional
+            * render() -> required
+            * getSnapshotBeforeUpdate() -> optional
+            * componentDidUpdate() -> optional    
+        */
+
+        class Car7 extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    year: 2023,
+                    model: "XM",
+                    brand: "BMW",
+                    color: "black"
+                }
+            }
+            
+            // is called when prop or state is changed
+            // static getDerivedStateFromProps(props, state) {
+            //     return {color: props.color}
+            // }
+
+            // return a boolean value and decide whether React shoudl re-render the component or not
+            shouldComponentUpdate() {
+                return true; // by default it's true
+            }
+
+            // custom method to change color state
+            changeColorToAqua = () => {
+                this.setState({color: "aqua"})
+            }
+
+            // render the component
+            render() {
+                return (
+                    <>
+                        <ul>
+                            <li><b>Brand:</b> {this.state.brand}</li>
+                            <li><b>Model:</b> {this.state.model}</li>
+                            <li><b>Color:</b> {this.state.color}</li>
+                            <li><b>Year:</b> {this.state.year}</li>
+                        </ul>
+
+                        
+                        <button
+                        type="button"
+                        onClick={this.changeColorToAqua}>
+                        Change color to aqua</button>
+                    </>
+                )
+                // To be successful at updating color to aqua, you need to disable the getDerivedStateFromProps() because it is called whenever color prop changes, so it's turned back to prop.color which is newColor
+            }
+        }
+        root.render(<Car7 color="newColor"/>)
+
+        class Car8 extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    model: "Audi",
+                    color: "blue"
+                }
+            }
+            
+            // is called after the component mounted(component is rendered in document)
+            componentDidMount() {
+                setTimeout( () => {
+                    console.log("I'm called")
+                    this.setState({color: "newColorFromComponentDidMount"})
+                }, 1000)
+            }
+
+            // is called before the update and have access to props and status
+            getSnapshotBeforeUpdate(prevProps, prevState) {
+                console.log(prevProps, prevState)
+                document.getElementById("div1").innerHTML = "Prev props: " + prevState.model + " " + prevState.color
+            }
+
+            // is called after the component is updated
+            componentDidUpdate() {
+                document.getElementById("div2").innerHTML = "Updated status: " + this.state.model + " " + this.state.color 
+            }
+
+            render() {
+                return (
+                    <>
+                        <h1>My Favorite Color is {this.state.color }</h1>
+                        <div id="div1"></div>
+                        <div id="div2"></div>
+                    </>
+                )
+            }
+        }
+        root.render(<Car8/>)
+
+        /*
+            Unmounting: It's the process of removing the React component from the DOM.
+
+            There is only one React built-in method that is called when unmounting the React Component:
+            
+                * componentWillUnmount() 
+        */
+
+        class Car9 extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    show: true
+                }
+            }
+
+            // update status
+            updateStatusToRemoveComponent = () => {
+                this.setState({show: false})
+            }
+
+            render() {
+                let content
+                if (this.state.show) {
+                    content = <Car10/>
+                }
+
+                return (
+                    <>
+                        <h1>{content}</h1>
+                        <button
+                        type="button"
+                        onClick={this.updateStatusToRemoveComponent}
+                        >Remove the React Component
+                        </button>
+                    </>
+                )
+            }
+        }
+
+        class Car10 extends React.Component {
+            // is called before the unmounting(removing React component from the DOM)
+            componentWillUnmount() {
+                    alert("React component will be removed soon.")
+                }
+
+            render() {
+                return <h1>Hello guys</h1>
+            }
+        }
+
+        root.render(<Car9/>)
+    </script>
+</body>
+</html>
