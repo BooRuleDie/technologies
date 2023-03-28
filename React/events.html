@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Events</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        // Just like HTML DOM events React can perform certain actions based on user events
+        // React events are camel-case 
+        // HTML DOM Events   | React Events
+        // onclick="shoot()" | onClick={shoot}
+
+        function Football() {
+            const shoot = (arg) => {
+                if (arg === "First arg yeeeeyy") {
+                    alert("Goalll!! Arg: " + arg)
+                }
+                else {
+                    alert("Goalll!!!!!")
+                }
+            }
+
+            return (
+                <>
+                    <button
+                    type="button"
+                    onClick={shoot}>Click for the goal message
+                    </button>
+
+                    <button
+                    type="button"
+                    onClick={() => shoot("First arg yeeeeyy")}>Click for goal with argument
+                    </button>
+                </>
+            )
+        }
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+        root.render(<Football/>)
+
+        function Football2() {
+            const shoot = (content, event) => {
+                alert(event.type)
+            }
+
+            return (
+                <>
+                    <button
+                    type="button"
+                    onClick={(event) => shoot("Goal", event)}>
+                    Click here
+                    </button>
+                </>
+            )
+        }
+        root.render(<Football2/>)
+    </script>
+</body>
+</html>
