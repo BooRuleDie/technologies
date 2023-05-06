@@ -89,10 +89,10 @@
             foreach ($rows as $row) {
                 
                 echo '<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 border p-3 rounded m-3">';
-                echo '<p class="fw-bold">First input: <span style="color:green;">' . $row['number1'] . '</span></p>';
-                echo '<p class="fw-bold">Second input: <span style="color:green;">' . $row['number2'] . '</span></p>';
-                echo '<p class="fw-bold">Third input: <span style="color:green;">' . $row['operation'] . '</span></p>';
-                echo '<p class="fw-bold">Web Page Output: <span style="color:green;">' . $row['number1'] . $row['operation'] . $row['number2'] . ' = ' . $row['result'] . '</span></p>';
+                echo '<p class="fw-bold">First Number: <span style="color:green;">' . $row['number1'] . '</span></p>';
+                echo '<p class="fw-bold">Second Number: <span style="color:green;">' . $row['number2'] . '</span></p>';
+                echo '<p class="fw-bold">Operation: <span style="color:green;">' . $row['operation'] . '</span></p>';
+                echo '<p class="fw-bold">Result: <span style="color:green;">' . $row['number1'] . $row['operation'] . $row['number2'] . ' = ' . $row['result'] . '</span></p>';
                 echo '</div>';
                 
             }
