@@ -1,6 +1,6 @@
 <?php 
 session_start() ;
-if (isset($_SESSION['authenticatedUser'])){
+if (isset($_SESSION['role'])){
     // is user is already authenticated redirect him to the view automatically
     header("Location: Views/" . strtolower($_SESSION["role"]) . "view.php");
     exit;
@@ -32,14 +32,14 @@ if (isset($_SESSION['authenticatedUser'])){
             </div>
         </div>
         <div class="text-center">
-            <button type="submit" class="btn btn-primary my-3">Submit</button>
+            <button type="submit" class="btn btn-primary my-3" name="login">Login</button>
         </div>
     </form>
 
     <?php
 
     // check if the form was submitted
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST["login"])) {
 
         // get the values posted from the form
         $eokulId = $_POST['eokulid'];
@@ -63,12 +63,11 @@ if (isset($_SESSION['authenticatedUser'])){
 
             // check if user's password is right
             if (password_verify($password, $passwordInDb)) {
-                $_SESSION['authenticatedUser'] = true;
                 $_SESSION['id'] = $eokulId;
                 $_SESSION['role'] = $role;
                 
                 // redirect user
-                header("Location: Views/" . strtolower($_SESSION["role"]) . "view.php");
+                header("Location: Views/" . strtolower($role) . "view.php");
                 exit;
                 
             } else {

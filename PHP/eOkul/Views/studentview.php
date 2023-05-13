@@ -13,7 +13,7 @@
 <body>
     <?php
     // using isset() when checking keys in arrays appears to be the best way
-    if (isset($_SESSION['authenticatedUser']) && $_SESSION === "Student") {
+    if ($_SESSION["role"] === "Student") {
 
         // logout user if he clicks the log out button and remove the session
         if(isset($_POST['logout'])) {
