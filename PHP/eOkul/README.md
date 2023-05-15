@@ -66,3 +66,19 @@ CREATE TABLE lessons (
     id TEXT PRIMARY KEY
 );
 ```
+
+# Sample User Data
+
+```
+role: Student
+id: eokul_645e122eb0da41.73298937
+password: 123456
+
+role: Teacher
+id: eokul_645f2b057a3086.87548164
+password: 123456
+
+role: Administrator
+id: eokul_645e13c6c2dcc9.16734120
+password: 123456
+```
