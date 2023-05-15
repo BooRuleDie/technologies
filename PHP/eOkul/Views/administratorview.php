@@ -85,6 +85,7 @@
           <label for="password" class="form-label">Password</label>
           <input type="password" class="form-control text-center" id="name" placeholder="*******" name="password">
         </div>
+        <label class="form-label">Role</label>
         <select class="form-select mb-3 fw-bold" name="role">
           <option selected>Student</option>
           <option>Teacher</option>
