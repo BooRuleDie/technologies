@@ -1,3 +1,17 @@
+# Brief Overview
+[Click Here](https://youtu.be/nOmqYFCywCY)
+
+# Roles
+There are three main roles in the project.
+
+1. Student
+2. Teacher
+3. Administrator
+
+**Student:** This role is only able to read the grades that are assigned by the particular teachers.
+**Teacher:** This role is able to read and write grades for the students who take lessons from them.
+**Administrator:** This role is able to register new users in the system with any role and also assign a new lesson to a particular student and teacher.
+
 # Database Structure
 
 ## `users` Table
