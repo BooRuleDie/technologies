@@ -20,7 +20,7 @@ class SoftwareEngineer:
             and self.level == otherObject.level
             and self.salary == otherObject.salary
         )
-    
+
     # instance methods
     def code(self, language):
         print(f"{self.name} is coding in {language}")
@@ -43,8 +43,8 @@ se2 = SoftwareEngineer("Efe", 19, "Junior", 1000)
 print(se1, se2, sep="\n")
 
 # thanks to __eq__
-print(se1 == se1_copy) # True
-print(se1 == se2) # False
+print(se1 == se1_copy)  # True
+print(se1 == se2)  # False
 
 # static method call
 print(SoftwareEngineer.calculateSalaryBasedOnAge(10))
@@ -53,4 +53,3 @@ print(SoftwareEngineer.calculateSalaryBasedOnAge(60))
 
 # instance method call
 se1.code("Python")
-
