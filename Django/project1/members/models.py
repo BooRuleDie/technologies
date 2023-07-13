@@ -30,4 +30,31 @@ class Member(models.Model):
     def __str__(self):
         return f"{self.pk} {self.firstname} {self.lastname} |"
     
+# database relationships 
+class Interest(models.Model):
+    title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
+
+class City(models.Model):
+    title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
+
+class Person(models.Model):
+    name = models.CharField(max_length=30)
+    mobile = models.CharField(max_length=20)
+    interests = models.ManyToManyField(Interest)
     
+    def __str__(self):
+        return self.name
+
+class PersonAddress(models.Model):
+    person = models.OneToOneField(Person, on_delete=models.CASCADE)
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    street_address = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.person.name} ({self.street_address})"

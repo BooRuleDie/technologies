@@ -21,5 +21,9 @@ urlpatterns = [
     path("testtemplate", views.testtemplate, name="test-template"),
 
     # test view fpr random junk
-    path("random-junk", views.random_output_view, name = "random-junk")
+    path("random-junk", views.random_output_view, name = "random-junk"),
+
+    # testing forms
+    path("test-form", views.testingForms, name = "testing-forms" ),
+    path("thanks", views.thanks, name = "thanks" )
 ]

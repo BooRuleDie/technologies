@@ -116,3 +116,22 @@ def testquerysets(request):
 def random_output_view(request):
     # return render(request, "some-random.html")
     return render(request, "test_html.html")
+
+from .forms import NameForm
+from django.http import HttpResponseRedirect
+def testingForms(request):
+    if request.method == "POST":
+        form = NameForm(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect("thanks")
+    else:
+        print("I'm here")
+        form = NameForm()
+        return render(request, "test-form.html", {"form": form})
+    
+def thanks(request):
+    return HttpResponse("<h1>Thanks for submitting the form.</h1>")
+
+        
+    
+
