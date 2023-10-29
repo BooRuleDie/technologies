@@ -41,19 +41,35 @@ const book_db = [
 // destructuring
 // const { title, author, src } = book_db[0];
 
+const EventTestComponent = () => {
+    return (
+        <>
+            <form
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    console.log(e);
+                    alert(
+                        `you entered: ${e.target.elements.input_name_1.value}`
+                    );
+                }}
+            >
+                <h2>Submit Form</h2>
+                <input type="text" name="input_name_1" />
+                <button type="submit">Submit</button>
+            </form>
+        </>
+    );
+};
+
 const BookList = () => {
     return (
         <div className="booklist">
-            {book_db.map(({ id, title, author, src, children }) => {
-                return (
-                    <Book
-                        key={id}
-                        title={title}
-                        author={author}
-                        src={src}
-                        children={children}
-                    />
-                );
+            <EventTestComponent />
+            {/* instead of specifying all properties of the object one by one just like that: {book_db.map(({ id, title, author, src, children }) => { 
+                
+            we can use the ... syntax as it's shown below*/}
+            {book_db.map((book) => {
+                return <Book {...book} key={book.id} />;
             })}
         </div>
     );
