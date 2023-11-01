@@ -26,21 +26,56 @@ console.log(new_obj);
 // 1. e.preventDefaul()
 // 2. e.target.name
 // 3. e.target.value ...
-const test = () => {
-    const handleClick = (e) => {
-        console.log("printed hulolo");
-    };
-    return <div onClick={handleClick}>Hulolo</div>;
-};
+// const test = () => {
+//     const handleClick = (e) => {
+//         console.log("printed hulolo");
+//     };
+//     return <div onClick={handleClick}>Hulolo</div>;
+// };
 
-const test2 = () => {
-    return (
-        <div
-            onClick={(e) => {
-                console.log("printed hulolo again");
-            }}
-        >
-            Hulolo
-        </div>
-    );
-};
+// const test2 = () => {
+//     return (
+//         <div
+//             onClick={(e) => {
+//                 console.log("printed hulolo again");
+//             }}
+//         >
+//             Hulolo
+//         </div>
+//     );
+// };
+
+const book_db = [
+    {
+        id: 1,
+        title: "some title",
+        author: "some author",
+        src: "https://picsum.photos/200/300",
+    },
+    {
+        id: 2,
+        title: "some title 1",
+        author: "some author 1",
+        src: "https://picsum.photos/200/301",
+    },
+    {
+        id: 3,
+        title: "some title 2",
+        author: "some author 2",
+        src: "https://picsum.photos/200/302",
+    },
+    {
+        id: 4,
+        title: "some title 3",
+        author: "some author 3",
+        src: "https://picsum.photos/200/303",
+    },
+];
+
+const challenge1 = (given_id) => {
+    return book_db.filter(book => {
+        return book.id === given_id
+    })[0]
+}
+
+console.log(challenge1(3));
