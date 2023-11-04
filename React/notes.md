@@ -19,3 +19,16 @@
     * only can be invoked within a component
     * can't be invoked conditionally *(don't use if statements to invoke a Hook)*
     * `set-` functions don't update the `state` immediately !!!  
+* Normally, React re-renders when there is a change in state or prop; however, in this case, there'd be just one re-render since React is smart enough to group all these state updates and perform only one re-render, which is called **auto-batching**
+    * React Code:
+        ```js
+            <button
+                    className="btn"
+                    onClick={() => {
+                        setName("John");
+                        setAge(24);
+                        setHobby("Gym");
+                        // Normally react re-renders when there is a change in state or prop however in thise case there'd be just one re-render since React is smart enough to group all these state updates and perform only one re-render which is called auto-batching - React v18
+                    }}
+                >
+        ```
