@@ -32,3 +32,11 @@
                     }}
                 >
         ```
+* If you need to get the latest value of a state value immediately after a set function then you can specify an anonymous function to set function instead of specify the value that will be assigned for the state variable just like that:
+    * Example Code
+    ```js
+        setCounter((prevState) => {
+                console.log(prevState + 1);
+                return prevState + 1;
+            });
+    ```
