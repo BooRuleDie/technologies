@@ -40,3 +40,26 @@
                 return prevState + 1;
             });
     ```
+* Short-Circuit Evaluation in Vanilla JS:
+    * Example:
+    ```js
+            // short-circuit evaluation -> && and ||
+
+        const falsy = NaN // one of the falsy values
+        const truthy = [] // one of the truthy values
+
+        // if the operator is &&:
+        // 1. if first one is falsy, it returns first one
+        // 2. if first one is truthy, it returns second one
+        console.log(truthy && falsy); // returns NaN
+        console.log(falsy && truthy); // returns NaN
+        console.log(truthy && truthy); // returns []
+
+        // if the operator is ||:
+        // 1. if first one is truthy, it returns first one
+        // 2. if first one is falsy, it returns second one
+        console.log(truthy || falsy); // returns []
+        console.log(falsy || truthy); // returns []
+        console.log(truthy || truthy); // returns []
+        console.log(falsy || falsy); // returns NaN
+    ```
