@@ -34,14 +34,18 @@
 // import Starter from "./tutorial/03-conditional-rendering/starter/03-hooks-rule";
 // import Final from "./tutorial/03-conditional-rendering/final/03-hooks-rule";
 
-import Starter from "./tutorial/03-conditional-rendering/starter/04-short-circuit-overview";
-import Final from "./tutorial/03-conditional-rendering/final/04-short-circuit-overview";
+// import Starter from "./tutorial/03-conditional-rendering/starter/04-short-circuit-overview";
+// import Final from "./tutorial/03-conditional-rendering/final/04-short-circuit-overview";
+
+import Starter from "./tutorial/03-conditional-rendering/starter/05-short-circuit-examples";
+import Final from "./tutorial/03-conditional-rendering/final/05-short-circuit-examples";
+
 
 function App() {
     return (
         <div className="container">
             <Starter />
-            {/* <Final /> */}
+            <Final />
         </div>
     );
 }
