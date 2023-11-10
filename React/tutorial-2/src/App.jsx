@@ -54,14 +54,17 @@
 // import { Home, About } from "./tutorial/04-project-structure/starter/Pages";
 // import MergedComponent from "./tutorial/04-project-structure/starter/Example";
 
-import { ListComponent } from "./tutorial/05-leverage-javascript/starter";
+// import { ListComponent } from "./tutorial/05-leverage-javascript/starter";
+
+import Starter from "./tutorial/06-forms/starter/01-controlled-inputs";
+import Final from "./tutorial/06-forms/final/01-controlled-inputs";
 
 function App() {
     return (
         <div className="container">
-            <ListComponent/>
-            {/* <Starter />  */}
+            <Starter /> 
             {/* <Final /> */}
+            {/* <ListComponent/> */}
             {/* <Navbar /> */}
             {/* <Home/> */}
             {/* <About/> */}
