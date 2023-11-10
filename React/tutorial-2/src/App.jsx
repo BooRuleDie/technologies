@@ -46,13 +46,22 @@
 // import Starter from "./tutorial/03-conditional-rendering/starter/07-user-challenge";
 // import Final from "./tutorial/03-conditional-rendering/final/07-user-challenge";
 
-import Starter from "./tutorial/02-useEffect/starter/05-cleanup-function";
-import Final from "./tutorial/02-useEffect/final/05-cleanup-function";
+// import Starter from "./tutorial/02-useEffect/starter/05-cleanup-function";
+// import Final from "./tutorial/02-useEffect/final/05-cleanup-function";
+
+// As you can see, you don't need to refer to the jsx file here. Since we're using index.jsx to export the component, referencing the directory is enough.
+// import Navbar from "./tutorial/04-project-structure/starter/Navbar";
+// import { Home, About } from "./tutorial/04-project-structure/starter/Pages";
+// import MergedComponent from "./tutorial/04-project-structure/starter/Example";
 
 function App() {
     return (
         <div className="container">
-            <Starter />
+            {/* <Navbar /> */}
+            {/* <Home/> */}
+            {/* <About/> */}
+            {/* <MergedComponent/> */}
+            {/* <Starter /> */}
             {/* <Final /> */}
         </div>
     );
