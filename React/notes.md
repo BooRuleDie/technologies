@@ -22,28 +22,28 @@
 * Normally, React re-renders when there is a change in state or prop; however, in this case, there'd be just one re-render since React is smart enough to group all these state updates and perform only one re-render, which is called **auto-batching**
     * React Code:
         ```js
-            <button
-                    className="btn"
-                    onClick={() => {
-                        setName("John");
-                        setAge(24);
-                        setHobby("Gym");
-                        // Normally react re-renders when there is a change in state or prop however in thise case there'd be just one re-render since React is smart enough to group all these state updates and perform only one re-render which is called auto-batching - React v18
-                    }}
-                >
+        <button
+                className="btn"
+                onClick={() => {
+                    setName("John");
+                    setAge(24);
+                    setHobby("Gym");
+                    // Normally react re-renders when there is a change in state or prop however in thise case there'd be just one re-render since React is smart enough to group all these state updates and perform only one re-render which is called auto-batching - React v18
+                }}
+            >
         ```
 * If you need to get the latest value of a state value immediately after a set function then you can specify an anonymous function to set function instead of specify the value that will be assigned for the state variable just like that:
     * Example Code
-    ```js
+        ```js
         setCounter((prevState) => {
                 console.log(prevState + 1);
                 return prevState + 1;
             });
-    ```
+        ```
 * Short-Circuit Evaluation in Vanilla JS:
     * Example:
-    ```js
-            // short-circuit evaluation -> && and ||
+        ```js
+        // short-circuit evaluation -> && and ||
 
         const falsy = NaN // one of the falsy values
         const truthy = [] // one of the truthy values
@@ -62,4 +62,9 @@
         console.log(falsy || truthy); // returns []
         console.log(truthy || truthy); // returns []
         console.log(falsy || falsy); // returns NaN
-    ```
+        ```
+* Optional Chaining and Default Value Syntax:
+    * Example:
+        ```js
+        const img = personInfo.images?.[0]?.small?.url || avatar;
+        ```
