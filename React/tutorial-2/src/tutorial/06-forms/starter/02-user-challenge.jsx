@@ -11,12 +11,14 @@ const UserChallenge = () => {
                 className="form"
                 onSubmit={(e) => {
                     e.preventDefault();
+                    if (!name) return; // if name is an empty string, don't do anything
                     setUsers((prevUsers) => {
                         return [
                             ...prevUsers,
                             { id: crypto.randomUUID(), name: name },
                         ];
                     });
+                    setName(""); // clear the name input
                 }}
             >
                 <h4>Add User</h4>
