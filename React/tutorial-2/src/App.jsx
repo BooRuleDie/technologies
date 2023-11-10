@@ -43,9 +43,11 @@
 // import Starter from "./tutorial/03-conditional-rendering/starter/06-toggle-challenge";
 // import Final from "./tutorial/03-conditional-rendering/final/06-toggle-challenge";
 
-import Starter from "./tutorial/03-conditional-rendering/starter/07-user-challenge";
-import Final from "./tutorial/03-conditional-rendering/final/07-user-challenge";
+// import Starter from "./tutorial/03-conditional-rendering/starter/07-user-challenge";
+// import Final from "./tutorial/03-conditional-rendering/final/07-user-challenge";
 
+import Starter from "./tutorial/02-useEffect/starter/05-cleanup-function";
+import Final from "./tutorial/02-useEffect/final/05-cleanup-function";
 
 function App() {
     return (
