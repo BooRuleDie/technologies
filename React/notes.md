@@ -68,3 +68,21 @@
         ```js
         const img = personInfo.images?.[0]?.small?.url || avatar;
         ```
+* Multiple Form Dynamically Set Value
+    * Example: 
+        ```js
+        const [user, setUser] = useState({
+        name: "",
+        email: "",
+        password: "",
+        });
+
+        const handleChange = (e) => {
+            // dynamically set
+            setUser({ ...user, [e.target.name]: e.target.value });
+        };
+
+        <input type="text" name="name" value={user.name} onChange={handleChange}/>
+        <input type="email" name="email" value={user.email} onChange={handleChange}/>
+        <input type="password" name="password" value={user.password} onChange={handleChange}/>
+        ```
