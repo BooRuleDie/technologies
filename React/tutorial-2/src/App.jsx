@@ -65,8 +65,11 @@
 // import Starter from "./tutorial/06-forms/starter/03-multiple-inputs";
 // import Final from "./tutorial/06-forms/final/03-multiple-inputs";
 
-import Starter from "./tutorial/06-forms/starter/04-other-inputs";
-import Final from "./tutorial/06-forms/final/04-other-inputs";
+// import Starter from "./tutorial/06-forms/starter/04-other-inputs";
+// import Final from "./tutorial/06-forms/final/04-other-inputs";
+
+import Starter from "./tutorial/06-forms/starter/05-form-data";
+import Final from "./tutorial/06-forms/final/05-form-data";
 
 
 function App() {
