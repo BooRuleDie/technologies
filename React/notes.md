@@ -116,3 +116,4 @@
         console.log("It's re-rendering...");
     }, [value]);
     ```
+* **Custom Hooks are GREAT to simplify the codebase** and since you can re-use them, they can also help reduce the amount of code that's needed to run the application properly.

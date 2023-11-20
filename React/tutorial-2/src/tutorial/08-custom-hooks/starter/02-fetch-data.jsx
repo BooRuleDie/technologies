@@ -1,54 +1,29 @@
-import { useEffect, useState } from 'react';
-const url = 'https://api.github.com/users/QuincyLarson';
+import useGetGithubUser from "./Custom-Hook-2";
 
 const FetchData = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-  const [user, setUser] = useState(null);
+    const { isError, isLoading, user } = useGetGithubUser(
+        "https://api.github.com/users/booruledie"
+    );
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const resp = await fetch(url);
-        // console.log(resp);
-        if (!resp.ok) {
-          setIsError(true);
-          setIsLoading(false);
-          return;
-        }
+    if (isLoading) {
+        return <h2>Loading...</h2>;
+    }
+    if (isError) {
+        return <h2>There was an error...</h2>;
+    }
+    const { avatar_url, name, company, bio } = user;
+    return (
+        <div>
+            <img
+                style={{ width: "100px", borderRadius: "25px" }}
+                src={avatar_url}
+                alt={name}
+            />
+            <h2>{name}</h2>
+            {company && <h4>works at {company}</h4>}
 
-        const user = await resp.json();
-        setUser(user);
-      } catch (error) {
-        setIsError(true);
-        // console.log(error);
-      }
-      // hide loading
-      setIsLoading(false);
-    };
-    fetchUser();
-  }, []);
-  // order matters
-  // don't place user JSX before loading or error
-
-  if (isLoading) {
-    return <h2>Loading...</h2>;
-  }
-  if (isError) {
-    return <h2>There was an error...</h2>;
-  }
-  const { avatar_url, name, company, bio } = user;
-  return (
-    <div>
-      <img
-        style={{ width: '100px', borderRadius: '25px' }}
-        src={avatar_url}
-        alt={name}
-      />
-      <h2>{name}</h2>
-      <h4>works at {company}</h4>
-      <p>{bio}</p>
-    </div>
-  );
+            <p>{bio}</p>
+        </div>
+    );
 };
 export default FetchData;
