@@ -86,3 +86,33 @@
         <input type="email" name="email" value={user.email} onChange={handleChange}/>
         <input type="password" name="password" value={user.password} onChange={handleChange}/>
         ```
+* Difference Between `e.target` and `e.currentTarget`
+    * Example:
+    ```js
+    <form
+        className="form"
+        onSubmit={(e) => {
+            e.preventDefault();
+            console.log("e.target");
+            console.log(e.target); // e.target refers to the DOM element that triggered the event
+            console.log("e.currentTarget");
+            console.log(e.currentTarget); // e.currentTarget refers to the DOM element that event-listener is listening on
+        }}
+    >
+    ```
+* `useRef` is quite similar to `useState` however any change of `useRef` **DOESN'T** trigger re-render. And it's so useful if you don't want to do something on initial render but only on re-render.
+    * Example:
+    ```js
+    const isMounted = useRef(false);
+
+    useEffect(() => {
+        if (!isMounted.current) {
+            // initial render
+            isMounted.current = true;
+            console.log("I didn't let it run since it's initial render");
+            return;
+        }
+        // re-render
+        console.log("It's re-rendering...");
+    }, [value]);
+    ```
