@@ -11,8 +11,7 @@ async def get_file_and_save(filename):
         r = await client.get(
             "https://fastly.picsum.photos/id/1002/200/300.jpg?grayscale&hmac=BMjbTdYXIVDxMqOYdZJrPv71albI6CMYmhGRHyJwwdo"
         )
-
-    async with aiofiles.open(f"./images/{filename}", mode='wb') as fp:
+    async with aiofiles.open(f"./images/{filename}", mode="wb") as fp:
         await fp.write(r.content)
 
 
@@ -30,3 +29,4 @@ asyncio.run(main())
 end = time.time()
 print(f"it took {end - start} seconds")
 # it took 0.8359086513519287 seconds
+# it took 1.502971887588501 seconds
