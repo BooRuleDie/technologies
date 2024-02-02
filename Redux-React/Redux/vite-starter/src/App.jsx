@@ -2,7 +2,7 @@ import Navbar from "./components/Navbar";
 import CartContainer from "./components/CartContainer";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { calculateTotals } from "../src/features/cart/cartSlice";
+import { calculateTotals, getCartItems } from "../src/features/cart/cartSlice";
 import Modal from "./components/Modal";
 
 function App() {
@@ -14,11 +14,23 @@ function App() {
         dispatch(calculateTotals());
     }, [cartState.cartItems]);
 
+    useEffect(() => {
+        dispatch(getCartItems("this is the value of parameter_passed"));
+    }, []);
+
     return (
         <main>
-            {modalState.isOpen && <Modal />}
-            <Navbar />
-            <CartContainer />
+            {cartState.isLoading ? (
+                <div className="loading">
+                    <h1>Loading...</h1>
+                </div>
+            ) : (
+                <>
+                    {modalState.isOpen && <Modal />}
+                    <Navbar />
+                    <CartContainer />
+                </>
+            )}
         </main>
     );
 }
