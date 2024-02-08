@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, "Open Sans", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background: #f5f5f5;
+}
+
+.container {
+    max-width: 960px;
+    margin: 100px auto;
+    padding: 10px;
+    display: grid;
+    
+    /* column-gap: 10px;
+    row-gap: 10px; */
+    gap: 10px; /* same as two lines above */
+    
+    /* grid-template-columns: 30% 40% 30%; */
+    /* grid-template-columns: 3fr 4fr 3fr; */
+    /* grid-template-columns: repeat(3, 1fr); */
+
+    /* responsive version */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+    /* set height for each row */
+    /* grid-auto-rows: 200px; */
+
+    /* you can specify the min and max at the same time by using minmax function */
+    /* grid-auto-rows: minmax(200px, auto); */
+
+    /* same as flexbox, you gotta change the fr unit to pixel to see the effect try 100px */
+    /* align-items: start;
+    justify-content: center; */
+
+}
+
+.item {
+    background-color: steelblue;
+    color: #fff;
+    font-size: 20px;
+    padding: 20px;
+    border: skyblue 1px solid;
+}
+
+/* .item:nth-of-type(1) {
+    background-color: #000; */
+    
+    /* grid-column-start: 1;
+    grid-column-end: 3; */
+    /* same as two lines above */  
+    /* grid-column: 1 / 3; */
+    /* If you couldn't figure what are these numbers just open the Elements tab, click on the grid button next to div that has container class and you should now see the numbers mentioning here */
+/* } */
+
+/* .item:nth-of-type(3) {
+    background-color: #333;
+    grid-row: 2 / 4;
+
+} */
+
+/* .item:nth-of-type(2) { */
+    /* width: 100px; */
+    /* height: 100px; */
+    /* align a particular grid item */
+    /* align-self: center;  */
+    /* justify a particular grid item */
+    /* justify-self: center;  */
+/* } */
