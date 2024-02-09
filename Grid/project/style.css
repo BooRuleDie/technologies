@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@200;300;400;700&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #EDF2F8;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    line-height: 1.7;
+    font-size: 13px;
+}
+
+.grid-container {
+    max-width: 1440px;
+    margin: 100px;
+}
+
+.grid-item {
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.grid-item header {
+    display: flex;
+    align-items: center;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+.grid-item header div {
+    margin-left: 15px;
+    color: #e7d2f8;
+}
+
+.grid-item header div p {
+    opacity: 50%;
+    font-weight: bold;
+}
+
+.grid-item header img {
+    border-radius: 50%;
+    border: #9a73d0 3px solid;
+    width: 30px;
+}
+
+.grid-item p.main {
+    color: #e7d2f8;
+    font-weight: bold;
+    font-size: 1.3rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.grid-item p.detail {
+    opacity: 50%;
+    color: #e7d2f8;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.grid-item:nth-child(1) {
+    background-color: #733fc8;
+    background-image: url("./images/bg-pattern-quotation.svg");
+    background-repeat: no-repeat;
+    background-position: top 10px right 100px;
+}
+
+.grid-item:nth-child(2) {
+    background-color: #49556b;
+}
+
+.grid-item:nth-child(3) {
+    background-color: #FFFFFF;
+    color: #5F6770
+}
+
+.grid-item:nth-child(4) {
+    background-color: #49556b;
+}
+
+.grid-item:nth-child(5) {
+    background-color: #49556b;
+}
