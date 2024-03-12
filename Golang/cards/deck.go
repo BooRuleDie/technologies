@@ -2,8 +2,10 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 // deck type is the same as a string slice
@@ -18,7 +20,7 @@ func newDeck() deck {
 	cards := deck{}
 	for _, suite := range deckSuites {
 		for _, value := range deckValues {
-			cards = append(cards, suite+" of "+value)
+			cards = append(cards, value+" of "+suite)
 		}
 	}
 
@@ -60,4 +62,19 @@ func (d deck) newDeckFromFile(filename string) deck {
 	}
 
 	return deck(strings.Split(string(sb), ", "))
+}
+
+// shuffle the deck
+func (d deck) shuffle() {
+	// seed logic
+	un := time.Now().UnixNano()
+	ns := rand.NewSource(un)
+	r := rand.New(ns)
+
+	// appearenlty we don't need to implement seed logic for the code below, just added to go along with the video
+	for i := range d {
+		ri := r.Intn(len(d))
+		d[i], d[ri] = d[ri], d[i]
+	}
+
 }
